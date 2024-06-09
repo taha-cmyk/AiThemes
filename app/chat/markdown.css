@@ -1,0 +1,98 @@
+/* Light mode */
+  #response a {
+    color: #007bff; /* Link color */
+  }
+
+  #response p > strong {
+    display: block;
+    width: 100%;
+    padding: 10px;
+     /* Background color */
+    
+  }
+
+  #response blockquote {
+    border-left-color: #dfe2e5; /* Blockquote border color */
+  }
+  
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+   
+
+    #response a {
+      color: #4a90e2; /* Link color */
+    }
+
+  
+    #response blockquote {
+      border-left-color: #666; /* Blockquote border color */
+    }
+  }
+  
+  /* Headers */
+  #response h1 {
+    font-size: 2em;
+  }
+  
+  #response h2 {
+    font-size: 1.5em;
+  }
+  
+  #response h3 {
+    font-size: 1.17em;
+  }
+  
+  #response h4 {
+    font-size: 1em;
+  }
+  
+  #response h5 {
+    font-size: 0.83em;
+  }
+  
+  #response h6 {
+    font-size: 0.67em;
+  }
+  
+  /* Paragraphs */
+  #response p {
+    margin: 0 0 1em;
+  }
+  
+/* Lists */
+#response ul,
+#response ol {
+  margin: 0 0 1em;
+  padding-left: 2em;
+  list-style-type: disc; /* Use dots for unordered lists */
+}
+
+#response ul li,
+#response ol li {
+  margin-bottom: 0.5em;
+  padding-left: 0.5em; /* Add padding to list items */
+}
+
+  /* Blockquotes */
+  #response blockquote {
+    margin: 0;
+    padding: 0 1em;
+    border-left: 0.25em solid;
+  }
+  
+  /* Inline elements */
+  #response em {
+    font-style: italic;
+  }
+  
+  #response strong {
+    font-weight: bold;
+  }
+  
+
+  
+  #response img {
+    max-width: 100%;
+    height: auto;
+  }
+  
