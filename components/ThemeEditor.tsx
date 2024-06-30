@@ -20,7 +20,33 @@ const ThemeEditor = () => {
     downloadFile(jsonTheme, "theme.json", "application/json");
   };
 
-  const downloadFile = (content, fileName, mimeType) => {
+  const exportThemeAsCSS = () => {
+    const cssTheme = generateThemeCSS(theme);
+    downloadFile(cssTheme, "theme.css", "text/css");
+  };
+
+  const generateThemeCSS = (theme: Themes): string => {
+    const themeVariables = Object.entries(theme)
+      .map(([mode, colors]) => {
+        const colorVariables = Object.entries(colors as Record<string, string>)
+          .map(([key, value]) => `--${mode}-${key}: ${value};`)
+          .join("\n");
+        return colorVariables;
+      })
+      .join("\n");
+
+    return `
+      :root {
+        ${themeVariables}
+      }
+    `;
+  };
+
+  const downloadFile = (
+    content: string,
+    fileName: string,
+    mimeType: string
+  ) => {
     const blob = new Blob([content], { type: mimeType });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -117,6 +143,18 @@ const ThemeEditor = () => {
             >
               <Download size={18} />
               <span>Export as JSON</span>
+            </Button>
+            <Button
+              style={{
+                backgroundColor: currentTheme.background,
+                color: currentTheme.onBackground,
+              }}
+              onClick={exportThemeAsCSS}
+              variant='outline'
+              className='flex items-center space-x-2'
+            >
+              <Download size={18} />
+              <span>Export as CSS</span>
             </Button>
           </div>
         </div>
